@@ -44,6 +44,14 @@ var legoCommands = {
         return this
     },
 
+    //This will add the current item to the shopping cart
+    shopAdd: function(){
+        this
+            .click('@itemBag')
+            .pause(500)
+        return this
+    },
+
     //This will go through all the buttons in the side menu
     menuCheck: function(){
         this
@@ -102,9 +110,72 @@ var legoCommands = {
             .click('@searchRItem')
             .wishAdd()
         return this
+    },
+
+    //This will go to an item and add to shopping cart
+    itemShopAdd: function(data){
+        var self = this
+        this
+            .wait('@searchBar')
+            .setValue('@searchBar', [data, self.api.Keys.ENTER])
+            .pause(2000)
+            .wait('@searchRItem')
+            .click('@searchRItem')
+            .shopAdd()
+        return this
+    },
+
+    //This will remove a item from the wishlist
+    wishlistRmv: function(){
+        this
+            .wait('@wishList')
+            .click('@wishList')
+            .wait('@wishBody')
+            .click('@wishRmvBtn')
+        return this
+    },
+
+    //This will add an item to shopping cart from the wishlist
+    wishlistToShop: function(){
+        this
+            .wait('@wishList')
+            .click('@wishList')
+            .wait('@wishBody')
+            .click('@wishBagBtn')
+        return this
+    },
+
+    //This will check what is in the wishlist
+    wishCheck: function(){
+        this
+            .wait('@wishList')
+            .click('@wishList')
+            .wait('@wishBody')
+            for(let i = 1; i < 5; i++){
+                this
+                    .api.useXpath()
+                    .getText(`(//div[@class="ProductRowstyles__TextWrapper-cbbmmq-11 ecWzVt"])[${i}]`, function(result){
+                        console.info("The item ", result.value, " is in the wishlist.")
+                    })
+            }
+        return this
+    },
+
+    //This will check what is in the shopping cart
+    shopCheck: function(){
+        this
+            .wait('@shopCart')
+            .click('@shopCart')
+            .wait('@shopBody')
+            for(let i = 1; i < 5; i++){
+                this
+                    .api.useXpath()
+                    .getText(`(//div[@class="ProductRowstyles__TextWrapper-cbbmmq-11 ecWzVt"])[${i}]`, function(result){
+                        console.info("The item ", result.value, " is in the shopping cart.")
+                    })
+            }
+        return this
     }
-
-
 }
 module.exports = {
     url: 'https://www.lego.com/en-us',
@@ -203,7 +274,7 @@ module.exports = {
             locateStrategy: 'xpath'
         },
 
-        //Wishlist page buttons and main page
+        //Wishlist page buttons, main page, product name selectors
         wishRmvBtn: {
             selector: '(//button[@data-test="remove-from-wishlist"])[1]',
             locateStrategy: 'xpath'
@@ -218,6 +289,10 @@ module.exports = {
         },
         wishBody: {
             selector: '//div[@class="WishlistPagestyles__MainContainer-v7f64q-2 izBGEy"]',
+            locateStrategy: 'xpath'
+        },
+        wishItem: {
+            selector: `(//div[@class="ProductRowstyles__TextWrapper-cbbmmq-11 ecWzVt"])[1]`,
             locateStrategy: 'xpath'
         },
 
