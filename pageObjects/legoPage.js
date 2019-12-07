@@ -1,3 +1,4 @@
+var legoCheck = require('../assets/legoCheck')
 var legoCommands = {
     //This will wait for an element to be visible (Because lazy)
     wait: function(data){
@@ -175,6 +176,38 @@ var legoCommands = {
                     })
             }
         return this
+    },
+
+    //This will check all the buttons in themes
+    menuThemeCheck: function(){
+        for(var i = 1; i < 41; i++){
+            if(i == 15) continue;
+            if(i == 20) continue;
+            if(i == 32) continue;
+            this
+                .wait('@menuBtn')
+                .click('@menuBtn')
+
+                .wait('@menuTheme')
+                .click('@menuTheme')
+
+                .api.useXpath()
+            this
+                .wait(`(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[${i}]`)
+                .click(`(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[${i}]`)
+
+                .api.useCss()
+            this
+                .wait('@searchRItem')
+                .getText('@themeRslt', function(result){
+                    // legoCheck.push(result)
+                    console.info("This is the title of the page selected through the themes menu:", result.value)
+                })
+        }
+        // console.log("This shows the list of themes checked:", "\n",)
+        // for(var x = 0;; x++){
+        //     console.log(legoCheck[x])
+        // }
     }
 }
 module.exports = {
@@ -241,6 +274,12 @@ module.exports = {
         menuSup: '[data-analytics-title="support"]',
         menuBack: {
             selector: '//button[@class="BurgerMenuButtonstyles__TextButton-jerj9c-2 djGzKW"]',
+            locateStrategy: 'xpath'
+        },
+
+        //This is the menu theme page result selector
+        themeRslt: {
+            selector: '(//span[@class="Markup__StyledMarkup-ar1l9g-0 bTYWAd"])[152]',
             locateStrategy: 'xpath'
         },
 

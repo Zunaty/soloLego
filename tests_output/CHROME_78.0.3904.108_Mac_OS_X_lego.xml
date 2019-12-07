@@ -1,51 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
             failures="0"
-            tests="9">
+            tests="10">
 
   <testsuite name="lego"
     errors="0" failures="0" hostname="" id="" package="lego" skipped="0"
-    tests="9" time="79.21" timestamp="">
+    tests="10" time="172.9" timestamp="">
   
-    <testcase name="Age Gate and Cookie Accept" classname="lego" time="2.595" assertions="1">
+    <testcase name="Age Gate and Cookie Accept" classname="lego" time="2.289" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Checking the menu buttons" classname="lego" time="9.722" assertions="14">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="Searching a theme" classname="lego" time="10.52" assertions="15">
-
-    
+    <testcase name="Checking the menu buttons" classname="lego" time="11.62" assertions="14">
 
     
 
@@ -76,7 +43,281 @@
     
     </testcase>
   
-    <testcase name="Adding an item to the Wishlist" classname="lego" time="22.25" assertions="15">
+    <testcase name="Checking the theme section" classname="lego" time="93.53" assertions="152">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -109,14 +350,7 @@
     
     </testcase>
   
-    <testcase name="Wishlist item check" classname="lego" time="3.170" assertions="2">
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="Adding items to shopping cart" classname="lego" time="21.35" assertions="10">
+    <testcase name="Searching a theme" classname="lego" time="9.872" assertions="15">
 
     
 
@@ -137,16 +371,8 @@
     
 
     
-    </testcase>
-  
-    <testcase name="Checking shopping cart" classname="lego" time="3.293" assertions="2">
 
     
-
-    
-    </testcase>
-  
-    <testcase name="Removing wishlist item" classname="lego" time="3.009" assertions="4">
 
     
 
@@ -157,7 +383,88 @@
     
     </testcase>
   
-    <testcase name="Add to cart from wishlist" classname="lego" time="3.306" assertions="4">
+    <testcase name="Adding an item to the Wishlist" classname="lego" time="22.03" assertions="15">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Wishlist item check" classname="lego" time="2.761" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Adding items to shopping cart" classname="lego" time="20.78" assertions="10">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Checking shopping cart" classname="lego" time="3.530" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Removing wishlist item" classname="lego" time="3.175" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Add to cart from wishlist" classname="lego" time="3.318" assertions="4">
 
     
 

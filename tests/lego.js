@@ -28,6 +28,12 @@ module.exports = {
             .menuCheck()
     },
 
+    //This test will check all the button in the theme portion of the menu
+    'Checking the theme section': browser => {
+        legoP
+            .menuThemeCheck()
+    },
+
     //This test is searching all the themes in an array that is predefined
     'Searching a theme': browser => {
         legoTheme.forEach(theme => {
