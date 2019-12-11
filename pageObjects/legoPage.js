@@ -1,4 +1,4 @@
-var legoCheck = require('../assets/legoCheck')
+var legoCheck = []
 var legoCommands = {
     //This will wait for an element to be visible (Because lazy)
     wait: function(data){
@@ -24,7 +24,7 @@ var legoCommands = {
         return this
     },
 
-    //This will search something in the search bar
+    //This will search in the search bar
     search: function(data){
         this
             .wait('@homeBtn')
@@ -32,7 +32,20 @@ var legoCommands = {
             .setValue('@searchBar', data)
             .click('@searchBtn')
             .wait('@searchRItem')
+            .legoAlert()
             .verify.containsText('@searchRslt', data)
+        return this
+    },
+
+    //This will search with id numbers
+    searchID: function(data1,data2){
+        var self = this
+        this
+            .wait('@homeBtn')
+            .setValue('@searchBar', [data1, self.api.Keys.ENTER])
+            .wait('@itemName')
+            .legoAlert()
+            .verify.containsText('@itemName', data2)
         return this
     },
 
@@ -60,42 +73,49 @@ var legoCommands = {
             .click('@menuBtn')
             .wait('@menuHome')
             .click('@menuHome')
+            .legoAlert()
             .verify.containsText('@menuVHome', 'Featured sets')
 
             //Clicking on the Theme button
             .click('@menuBtn')
             .wait('@menuTheme')
             .click('@menuTheme')
+            .legoAlert()
             .verify.containsText('@menuVTheme', 'THEMES')
 
             //Clicking on the Shop By button
             .click('@menuBack')
             .wait('@menuShop')
             .click('@menuShop')
+            .legoAlert()
             .verify.containsText('@menuVShop', 'SHOP BY')
 
             //Clicking on the Interests button
             .click('@menuBack')
             .wait('@menuInterest')
             .click('@menuInterest')
+            .legoAlert()
             .verify.containsText('@menuVInterest', 'INTERESTS')
 
             //Clicking the Sale & Offers button
             .click('@menuBack')
             .wait('@menuSale')
             .click('@menuSale')
+            .legoAlert()
             .verify.containsText('@menuVSale', 'Sale')
 
             //Clicking the Exclusives button
             .click('@menuBtn')
             .wait('@menuExclu')
             .click('@menuExclu')
+            .legoAlert()
             .verify.containsText('@menuVExclu', 'Exclusive')
 
             //Clicking the Support button
             .click('@menuBtn')
             .wait('@menuSup')
             .click('@menuSup')
+            .legoAlert()
             .verify.containsText('@menuVSup', 'SUPPORT')
         return this
     },
@@ -106,9 +126,11 @@ var legoCommands = {
         this
             .wait('@searchBar')
             .setValue('@searchBar', [data, self.api.Keys.ENTER])
-            .pause(2000)
+            .legoAlert()
             .wait('@searchRItem')
             .click('@searchRItem')
+            .legoAlert()
+            .legoProDetail()
             .wishAdd()
         return this
     },
@@ -119,9 +141,11 @@ var legoCommands = {
         this
             .wait('@searchBar')
             .setValue('@searchBar', [data, self.api.Keys.ENTER])
-            .pause(2000)
+            .legoAlert()
             .wait('@searchRItem')
             .click('@searchRItem')
+            .legoAlert()
+            .legoProDetail()
             .shopAdd()
         return this
     },
@@ -132,6 +156,7 @@ var legoCommands = {
             .wait('@wishList')
             .click('@wishList')
             .wait('@wishBody')
+            .legoAlert()
             .click('@wishRmvBtn')
         return this
     },
@@ -142,6 +167,7 @@ var legoCommands = {
             .wait('@wishList')
             .click('@wishList')
             .wait('@wishBody')
+            .legoAlert()
             .click('@wishBagBtn')
         return this
     },
@@ -152,6 +178,7 @@ var legoCommands = {
             .wait('@wishList')
             .click('@wishList')
             .wait('@wishBody')
+            .legoAlert()
             for(let i = 1; i < 5; i++){
                 this
                     .api.useXpath()
@@ -168,6 +195,7 @@ var legoCommands = {
             .wait('@shopCart')
             .click('@shopCart')
             .wait('@shopBody')
+            .legoAlert()
             for(let i = 1; i < 5; i++){
                 this
                     .api.useXpath()
@@ -184,6 +212,7 @@ var legoCommands = {
             if(i == 15) continue;
             if(i == 20) continue;
             if(i == 32) continue;
+            if(i == 34) continue;
             this
                 .wait('@menuBtn')
                 .click('@menuBtn')
@@ -198,16 +227,134 @@ var legoCommands = {
 
                 .api.useCss()
             this
+                .legoAlert()
                 .wait('@searchRItem')
+                .legoAlert()
                 .getText('@themeRslt', function(result){
                     // legoCheck.push(result)
                     console.info("This is the title of the page selected through the themes menu:", result.value)
                 })
         }
-        // console.log("This shows the list of themes checked:", "\n",)
-        // for(var x = 0;; x++){
-        //     console.log(legoCheck[x])
-        // }
+    },
+
+    //This will check the shop by in menu
+    menuShopByCheck: function(){
+        for(var i = 42; i < 49; i++){
+            this
+                .wait('@menuBtn')
+                .click('@menuBtn')
+
+                .wait('@menuShop')
+                .click('@menuShop')
+
+                .api.useXpath()
+            this
+                .wait(`(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[${i}]`)
+                .getText(`(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[${i}]`, function(result){
+                    console.info("Test clicking this button", result.value)
+                })
+                .click(`(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[${i}]`)
+                .legoAlert()
+        }
+    },
+
+    //This will check the interest in menu
+    menuInterestCheck: function(){
+        for(var i = 78; i < 97; i++){
+            this
+                .wait('@menuBtn')
+                .click('@menuBtn')
+
+                .wait('@menuInterest')
+                .click('@menuInterest')
+
+                .api.useXpath()
+            this
+                .wait(`(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[${i}]`)
+                .getText(`(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[${i}]`, function(result){
+                    console.info("Test clicking this button", result.value)
+                })
+                .click(`(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[${i}]`) 
+                .legoAlert()
+        }
+    },
+
+    //This will get the product info for an item using an array
+    legoPC: function(data){
+        var self = this
+        var productDetail = {}
+        this
+            .wait('@searchBar')
+            .setValue('@searchBar',[data, self.api.Keys.ENTER])
+            .wait('@searchRItem2')
+            .legoAlert()
+            .click('@searchRItem2')
+            .wait('@itemPC')
+            .legoAlert()
+            .getText('@itemName', function(result){
+                console.log(result.value)
+                productDetail.name = result.value;
+            })
+            .getText('@itemNum', function(result){
+                console.log(result.value)
+                productDetail.idnumber = result.value;
+            })
+            .getText('@itemPC', function(result){
+                console.log(result.value)
+                productDetail.pieceCount = result.value;
+            })
+        legoCheck.push(productDetail)
+        return this
+    },
+
+    //This will get the product info for a item in general
+    legoProDetail: function(){
+        var productDetail = {}
+        this
+            .wait('@itemPC')
+            .legoAlert()
+            .getText('@itemName', function(result){
+                console.log(result.value)
+                productDetail.name = result.value;
+            })
+            .getText('@itemNum', function(result){
+                console.log(result.value)
+                productDetail.idnumber = result.value;
+            })
+            .getText('@itemPC', function(result){
+                console.log(result.value)
+                productDetail.pieceCount = result.value;
+            })
+        legoCheck.push(productDetail)
+        return this
+    },
+
+    //This will search items through the empty array
+    emptyArraySearch: function(){
+        for(var x = 0; x < 6; x++){
+            this
+                .searchID(legoCheck[x].idnumber, legoCheck[x].name)
+            return this
+        }
+    },
+
+    //This will display the piece counts stored in the array
+    legoPCReport: function(){
+        console.info("These are the piece counts for the items:", "\n")
+        console.log(legoCheck)
+        console.log(legoCheck.length)
+    },
+
+    //This will aceppt the pop up alert
+    legoAlert: function(){
+        this
+            .api.element('@popup', function(result){
+                if(result.value != 0){
+                    this
+                        .dismissAlert()
+                }
+            })
+        return this
     }
 }
 module.exports = {
@@ -246,6 +393,10 @@ module.exports = {
             selector: '(//li[@data-test="product-item"])[1]',
             locateStrategy: 'xpath'
         },
+        searchRItem2: {
+            selector: '(//li[@data-test="product-item"])[2]',
+            locateStrategy: 'xpath'
+        },
 
         //These are the top bar buttons
         menuBtn: '[data-test="header-mobile-burger-button"]',
@@ -280,6 +431,12 @@ module.exports = {
         //This is the menu theme page result selector
         themeRslt: {
             selector: '(//span[@class="Markup__StyledMarkup-ar1l9g-0 bTYWAd"])[152]',
+            locateStrategy: 'xpath'
+        },
+
+        //This is the menu shop by result selector
+        shopRslt: {
+            selector: '(//li[@class="Liststyles__ListItem-sc-114bngs-1 fzheIH"])[42]',
             locateStrategy: 'xpath'
         },
 
@@ -382,9 +539,20 @@ module.exports = {
             selector: '//button[@data-test="add-to-bag"]',
             locateStrategy: 'xpath'
         },
+        itemName: {
+            selector: '//h1/span[@class="Markup__StyledMarkup-ar1l9g-0 bTYWAd"]',
+            locateStrategy: 'xpath'
+        },
+        itemNum:{
+            selector: '//span[@data-test="product-details__product-code"]',
+            locateStrategy: 'xpath'
+        },
         itemPC: {
             selector: '//span[@data-test="product-details__piece-count"]',
             locateStrategy: 'xpath'
-        }
+        },
+
+        //Pop up alert selector
+        popup: '#IPEinvL104230'
     }
 }

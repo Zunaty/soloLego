@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
             failures="0"
-            tests="10">
+            tests="15">
 
   <testsuite name="lego"
     errors="0" failures="0" hostname="" id="" package="lego" skipped="0"
-    tests="10" time="172.9" timestamp="">
+    tests="15" time="219.1" timestamp="">
   
-    <testcase name="Age Gate and Cookie Accept" classname="lego" time="2.289" assertions="1">
+    <testcase name="Age Gate and Cookie Accept" classname="lego" time="2.401" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Checking the menu buttons" classname="lego" time="11.62" assertions="14">
+    <testcase name="Checking the menu buttons" classname="lego" time="9.757" assertions="14">
 
     
 
@@ -43,23 +43,7 @@
     
     </testcase>
   
-    <testcase name="Checking the theme section" classname="lego" time="93.53" assertions="152">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+    <testcase name="Checking the theme menu section" classname="lego" time="90.12" assertions="144">
 
     
 
@@ -350,7 +334,7 @@
     
     </testcase>
   
-    <testcase name="Searching a theme" classname="lego" time="9.872" assertions="15">
+    <testcase name="Checking the shop by menu section" classname="lego" time="8.047" assertions="21">
 
     
 
@@ -363,27 +347,6 @@
     
 
     
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="Adding an item to the Wishlist" classname="lego" time="22.03" assertions="15">
 
     
 
@@ -416,14 +379,134 @@
     
     </testcase>
   
-    <testcase name="Wishlist item check" classname="lego" time="2.761" assertions="2">
+    <testcase name="Checking the interests menu section" classname="lego" time="20.81" assertions="57">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
     
     </testcase>
   
-    <testcase name="Adding items to shopping cart" classname="lego" time="20.78" assertions="10">
+    <testcase name="Searching a theme" classname="lego" time="12.12" assertions="15">
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -446,14 +529,72 @@
     
     </testcase>
   
-    <testcase name="Checking shopping cart" classname="lego" time="3.530" assertions="2">
+    <testcase name="Piece count grab" classname="lego" time="15.31" assertions="15">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
     
     </testcase>
   
-    <testcase name="Removing wishlist item" classname="lego" time="3.175" assertions="4">
+    <testcase name="Adding an item to the Wishlist" classname="lego" time="20.79" assertions="20">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 
@@ -464,7 +605,14 @@
     
     </testcase>
   
-    <testcase name="Add to cart from wishlist" classname="lego" time="3.318" assertions="4">
+    <testcase name="Wishlist item check" classname="lego" time="3.528" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Adding items to shopping cart" classname="lego" time="19.04" assertions="15">
 
     
 
@@ -473,6 +621,69 @@
     
 
     
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Checking shopping cart" classname="lego" time="3.807" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Removing wishlist item" classname="lego" time="3.845" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Add to cart from wishlist" classname="lego" time="3.942" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Product number search" classname="lego" time="3.701" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Product details" classname="lego" time="1.867" assertions="0">
     </testcase>
   
 

@@ -1,6 +1,7 @@
 var legoP = {}
 var legoTheme = require('../assets/legoThemes')
 var legoRandom = require('../assets/legoRandom')
+//var legoCheck = require('../assets/legoCheck')
 
 module.exports = {
 
@@ -28,10 +29,22 @@ module.exports = {
             .menuCheck()
     },
 
-    //This test will check all the button in the theme portion of the menu
-    'Checking the theme section': browser => {
+    //This test will check all the buttons in the theme portion of the menu
+    'Checking the theme menu section': browser => {
         legoP
             .menuThemeCheck()
+    },
+
+    //This test will check all the buttons in the shop by portion of the menu
+    'Checking the shop by menu section': browser => {
+        legoP
+            .menuShopByCheck()
+    },
+
+    //This test will check all the buttons in the interests portion of the mneu
+    'Checking the interests menu section': browser => {
+        legoP
+            .menuInterestCheck()
     },
 
     //This test is searching all the themes in an array that is predefined
@@ -39,6 +52,14 @@ module.exports = {
         legoTheme.forEach(theme => {
             legoP
                 .search(theme)
+        })
+    },
+
+    //This test will go to a item and grab its piece count
+    'Piece count grab': browser => {
+        legoTheme.forEach(data => {
+            legoP
+                .legoPC(data)
         })
     },
 
@@ -64,7 +85,7 @@ module.exports = {
                 .itemShopAdd(random)
         })
     },
-
+    
     //This test checks the items in the shopping cart
     'Checking shopping cart': browser => {
         legoP
@@ -85,5 +106,17 @@ module.exports = {
             legoP
                 .wishlistToShop()
         }
+    },
+
+    //Searching items through their id number
+    'Product number search': browser => {
+        legoP
+            .emptyArraySearch()
+    },
+
+    //Showing all items saved to array
+    'Product details': browser => {
+        legoP
+            .legoPCReport()
     },
 }
